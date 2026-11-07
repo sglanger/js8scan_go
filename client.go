@@ -97,6 +97,7 @@ func (c *Client) SetFreq(dialHz, offsetHz int64) error {
 }
 
 // SendMessage queues text for transmission (as if typed in the TX box and sent).
+// TODO - add TX enabled safety check to this function
 func (c *Client) SendMessage(text string) error {
 	return c.send(APIMsg{Type: "TX.SEND_MESSAGE", Value: text})
 }

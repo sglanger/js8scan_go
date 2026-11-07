@@ -21,6 +21,7 @@ type Message struct {
 }
 
 type Config struct {
+    Callsign  string
 	RadioName string
 	Host      string
 	Port      int
@@ -134,6 +135,7 @@ func LoadConfig(path string) (*Config, error) {
 		return nil, err
 	}
 	c := &Config{
+		Callsign:     get(ini, "radio", "callsign", ""),
 		RadioName:    get(ini, "radio", "name", "radio"),
 		Host:         get(ini, "radio", "host", "127.0.0.1"),
 		MinDwell:     getSecs(ini, "scan", "min_dwell", 120),

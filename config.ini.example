@@ -1,14 +1,17 @@
 ; js8scan configuration
 
 [radio]
+callsign = K2ORS
 name     = IC-7300
 host     = 127.0.0.1
 ; JS8Call: File > Settings > Reporting > API > enable TCP Server (default 2442)
 port     = 2442
 
 [scan]
-; Seconds. Stay at least min_dwell; extend while activity is heard,
-; but never longer than max_dwell.
+; Seconds. Stay at least min_dwell; extend while activity is heard, but never longer than max_dwell.
+;   Note that these should be a multiple of the js8call 15 second decode window
+;       120 seconds = 8 decode windows
+;       600 seconds = 20 decode windows
 min_dwell  = 120
 max_dwell  = 600
 ; Extend the stay if something was heard within this many seconds.
@@ -19,7 +22,9 @@ offset     = 1500
 [frequencies]
 ; label = dial frequency (Hz, or MHz if it contains a decimal point)
 80m = 3.578
+80m_ghostnet = 3.593
 40m = 7.078
+40m_ghostnet = 7.107
 30m = 10.130
 20m = 14.078
 17m = 18.104
